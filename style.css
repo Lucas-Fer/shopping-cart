@@ -1,0 +1,111 @@
+* {
+  font-family: Ubuntu, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  color: white;
+}
+
+#header-one {
+  width: 69%;
+  background-color: yellow;
+  padding: 15px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-header {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+#header-two {
+  width: 31%;
+  background-color: gray;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#header-two p {
+  color: black;
+  margin-top: 5px;
+}
+
+main {
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.items {
+  display: flex;
+  flex-basis: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  border: 2px solid blue;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 5px;
+  width: 200px;
+}
+
+.item .item__sku {
+  display: none;
+}
+
+.item .item__title {
+  flex-grow: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.item .item__image {
+  width: 100%;
+}
+
+.item .item__add {
+  background-color: green;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 5px;
+}
+
+.cart {
+  display: flex;
+  flex-basis: 31.4%;
+  flex-flow: column wrap;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.cart li {
+  list-style-type: none;
+  margin: 10px;
+}
+
+.cart .cart__title {
+  flex-basis: 1;
+  font-size: 16pt;
+  text-align: center;
+}
