@@ -12,9 +12,9 @@ header {
 
 #header-one {
   width: 69%;
-  background-color: yellow;
+  background-color: #fff159;
   padding: 15px;
-  color: black;
+  color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +28,7 @@ header {
 
 #header-two {
   width: 31%;
-  background-color: gray;
+  background-color: #036b52;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -36,13 +36,14 @@ header {
   flex-direction: column;
 }
 
-#header-two p {
-  color: black;
-  margin-top: 5px;
+#header-two p{
+  margin: 10px;
+  color: yellow
 }
 
+
 main {
-  background-color: white;
+  background-color:whitesmoke;
 }
 
 .container {
@@ -56,11 +57,13 @@ main {
   flex-basis: 70%;
   flex-wrap: wrap;
   justify-content: center;
+  background-color:#036b52;
 }
 
 .item {
-  border: 2px solid blue;
+  border: 4px solid greenyellow;
   border-radius: 5px;
+  background-color: white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -84,28 +87,70 @@ main {
 }
 
 .item .item__add {
-  background-color: green;
+  background-color: #fff159;
   border: 0;
   cursor: pointer;
   margin: 0;
-  padding: 5px;
+  padding: 10px;
+  opacity: 0.5;
+}
+
+.item__add:hover {
+  opacity: 1;
 }
 
 .cart {
   display: flex;
   flex-basis: 31.4%;
   flex-flow: column wrap;
-  border: 1px solid black;
+  background-color: #fff159;
   padding: 10px;
 }
 
-.cart li {
-  list-style-type: none;
-  margin: 10px;
-}
-
-.cart .cart__title {
+.cart__title {
   flex-basis: 1;
   font-size: 16pt;
   text-align: center;
+}
+
+.cart__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.details-cart {
+  margin: 2px;
+}
+
+.paragraph {
+  margin: 5px;
+  text-align: justify;
+}
+
+.empty-cart {
+  align-self: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  height: 50px;
+  width: 50%;
+  padding: 10px;
+  border: 1px solid black;
+  color: white;
+  font-size:small;
+  border-radius: 10px;
+  background-color: #457b9d;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  background-color:  rgb(50, 167, 145);
+  height: 50px;
+  padding: 10px;
 }

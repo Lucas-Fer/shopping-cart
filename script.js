@@ -46,9 +46,9 @@ function createCartItemElement({ name, salePrice, image }) {
   div.className = 'cart__item';
   div.innerHTML = `
   <img class="item__image" src="${image}" alt="produto">
-  <h3 class="details-cart">Detalhes</h3>
-  <p>${name}</p>
-  <h4 class="value-cart">Valor: $</h4> ${salePrice}`;
+  <h3 class="details-cart">Informações do produto</h3>
+  <p class="paragraph">${name}</p>
+  <p class="value-cart"><strong>Valor: $</strong> ${salePrice}</p>`;
 
   div.addEventListener('click', cartItemClickListener);
   // help do Brunão
