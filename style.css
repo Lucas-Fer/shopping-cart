@@ -105,6 +105,7 @@ main {
   flex-flow: column wrap;
   background-color: #fff159;
   padding: 10px;
+  height: auto
 }
 
 .cart__title {
@@ -136,21 +137,41 @@ main {
 
 .empty-cart {
   align-self: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
   height: 50px;
-  width: 50%;
+  width: 55%;
   padding: 10px;
   border: 1px solid black;
   color: white;
-  font-size:small;
+  font-size: medium;
   border-radius: 10px;
-  background-color: #457b9d;
+  background-color: #3a0ca3;
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.empty-cart:hover {
+  opacity: 1;
+}
+
+select {
+  background: transparent;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  background: white; 
 }
 
 footer {
   text-align: center;
   background-color:  rgb(50, 167, 145);
+  color: white;
   height: 50px;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

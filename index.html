@@ -16,6 +16,15 @@
     <header>
       <section id="header-one">
       <h1>Shopping cart</h1>
+      <select  name="computadores" id="" onclick="changeCategory(this)">
+        <option value="selecione" disabled selected>Filtre o que procura aqui:</option>
+        <option value="computador">Computadores</option>
+        <option value="tablet">Tablets</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="automoveis">Automóveis</option>
+        <option value="doces">Doces</option>
+        <option value="consoles">Consoles</option>
+      </select>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeTEdH0Pke2Bv6fu50L5vtl59gjg9E9BE6TbxnzSbhtElkuxF5Io-eC9InBlbdHEbeKKs&usqp=CAU" alt="carrinho-compras" class="img-header">
       </section>
       <section id="header-two">
@@ -26,7 +35,7 @@
     
     <main>
     <section class="container">
-      <section class="items"><span class="loading">Carregando, por favor aguarde...</span></section>
+      <section class="items"><span class="loading"></span></section>
 
       <section class="cart">
         <button class="empty-cart">Clique aqui para esvaziar o carrinho</button>

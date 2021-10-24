@@ -1,7 +1,8 @@
 const odinPaiDeTodos = document.querySelector('.cart__items');
 const messageLoad = document.querySelector('.loading');
 const priceCount = document.querySelector('.total-price');
-
+const optionsCategory = document.querySelectorAll('option');
+const sectionFather = document.querySelector('.items');
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -67,7 +68,6 @@ const getIdAndGetCartItem = async (sku) => {
 function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   const section = document.createElement('section');
   // adiciona a classe pai
-  const sectionFather = document.querySelector('.items');
   section.className = 'item';
 
   section.appendChild(createCustomElement('span', 'item__sku', sku));
@@ -109,15 +109,27 @@ const clearAll = () => {
 };
 clearAll();
 
-window.onload = () => {
-  // help do Brunão
-  if (odinPaiDeTodos.children.length === 0) verifyFunctionVoidAndRestore();
-  fetchProducts('computador').then((value) => {
+function loadApi(search) {
+  messageLoad.innerText = 'Carregando, por favor aguarde...';
+  return fetchProducts(search).then((value) => {
     value.results.forEach((element) => {
       createProductItemElement(element);
     });
     messageLoad.remove();
   });
+}
+
+const changeCategory = (elemento) => {
+  const value = elemento.value;
+  sectionFather.innerHTML = '';
+  loadApi(value);
+  console.log(elemento.value);
+};
+
+window.onload = () => {
+  // help do Brunão
+  if (odinPaiDeTodos.children.length === 0) verifyFunctionVoidAndRestore();
+  loadApi('computador');
   addEventToItemSaved();
   updateTotalPrice();
 };
