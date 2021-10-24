@@ -21,8 +21,7 @@ const getPrice = () => {
   odinPaiDeTodos.childNodes.forEach((element) => {
     const elementText = element.innerText;
     // slice pega os elementos a partir de uma posição inicial até a anterior da final
-    const getEachPrice = elementText.slice(elementText.indexOf('PRICE: $') + 'PRICE: $'.length);
-    console.log(elementText.indexOf('PRICE: $'));
+    const getEachPrice = elementText.slice(elementText.indexOf('Valor: $') + 'Valor: $'.length);
     newPriceCount += parseFloat(getEachPrice);
   });
   return newPriceCount;
@@ -39,14 +38,19 @@ function cartItemClickListener(event) {
   updateTotalPrice();
 }
 
-function createCartItemElement({ sku, name, salePrice }) {
+function createCartItemElement({ name, salePrice, image }) {
   // ajuda na sala 03 (ForEver)
 
-  const li = document.createElement('li');
-  li.className = 'cart__item';
-  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-  li.addEventListener('click', cartItemClickListener);
-  odinPaiDeTodos.appendChild(li);
+  const div = document.createElement('div');
+  odinPaiDeTodos.appendChild(div);
+  div.className = 'cart__item';
+  div.innerHTML = `
+  <img class="item__image" src="${image}" alt="produto">
+  <h3 class="details-cart">Detalhes</h3>
+  <p>${name}</p>
+  <h4 class="value-cart">Valor: $</h4> ${salePrice}`;
+
+  div.addEventListener('click', cartItemClickListener);
   // help do Brunão
   updateTotalPrice();
   saveCartItems(odinPaiDeTodos.innerHTML);
@@ -56,8 +60,8 @@ const getIdAndGetCartItem = async (sku) => {
   // codigo em conjunto na Sala 03 - forEver
   // o ID será desestruturado na função createProductIteElement
   const fetch = await fetchItem(sku);
-  const { title: name, price: salePrice } = fetch;
-  createCartItemElement({ sku, name, salePrice });
+  const { title: name, price: salePrice, thumbnail: image } = fetch;
+  createCartItemElement({ name, salePrice, image });
 };
 
 function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
@@ -100,6 +104,7 @@ const clearAll = () => {
   button.addEventListener('click', () => {
     odinPaiDeTodos.innerHTML = '';
     saveCartItems(odinPaiDeTodos.innerHTML);
+    updateTotalPrice();
   });
 };
 clearAll();
