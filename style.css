@@ -111,6 +111,11 @@ main {
 .cart__title {
   flex-basis: 1;
   font-size: 16pt;
+  text-align: justify;
+}
+
+.item_price {
+  margin: 2px;
   text-align: center;
 }
 

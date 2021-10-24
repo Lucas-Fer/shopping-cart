@@ -32,7 +32,7 @@ const updateTotalPrice = () => {
   priceCount.innerText = getPrice();
 };
 
-function cartItemClickListener(event) {
+function cartItemClickListener() {
   // ajuda do Miyazaki
   event.target.remove();
   saveCartItems(odinPaiDeTodos.innerHTML);
@@ -65,7 +65,7 @@ const getIdAndGetCartItem = async (sku) => {
   createCartItemElement({ name, salePrice, image });
 };
 
-function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
+function createProductItemElement({ id: sku, title: name, thumbnail: image, price }) {
   const section = document.createElement('section');
   // adiciona a classe pai
   section.className = 'item';
@@ -73,7 +73,7 @@ function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
-
+  section.appendChild(createCustomElement('span', 'item_price', `RS: ${price}`));
   const buttonEventAdd = createCustomElement('button', 'item__add', 'Adicionar ao carrinho!');
   section.appendChild(buttonEventAdd);
 
